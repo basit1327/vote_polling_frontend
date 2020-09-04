@@ -2,6 +2,7 @@ var vpoll = angular.module('vpoll',[]);
 vpoll.controller("mainCTRL", ['$http', '$scope', function(http, sc){
 
     sc.pollsList = [];
+    sc.todayPoll = {};
 
     /* Calling Get List of polls at the page init*/
     (listAllPolls = async ()=>{
@@ -12,11 +13,14 @@ vpoll.controller("mainCTRL", ['$http', '$scope', function(http, sc){
                 if ( serverResponse.hasOwnProperty('status') ){
                     if ( serverResponse.status==200 ){
                         sc.pollsList = serverResponse.data;
-                        sc.$digest();
                         if ( sc.pollsList.length===0 ){
                         	$('#no-record-dialog').show();
 							$('#content').hide();
-						}
+						} else{
+                            sc.todayPoll = sc.pollsList[0];
+                            sc.pollsList.splice(0, 1);
+                        }
+                        sc.$digest();
                     } else {
                         swal({
                             title: "Oops",

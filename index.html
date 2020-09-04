@@ -10,7 +10,8 @@
 	<!-- Web Css -->
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 
-	<link rel="stylesheet" href="assets/css/fontawesome.css">
+	<!--<link rel="stylesheet" href="assets/css/fontawesome.css">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 	<link rel="stylesheet" href="assets/css/custom.css">
 
 </head>
@@ -21,13 +22,13 @@
 	<div class="row today-poll">
             <div class="col-md-12">
 				<h4><i class="fa fa-comment"></i>Today's Poll </h4>
-				<p class="mb-0">{{pollsList[0].text}}</p>
-				<h6 class="date-text">{{pollsList[0].date}}</h6>
+				<p class="mb-0">{{todayPoll.text}}</p>
+				<h6 class="date-text">{{todayPoll.date}}</h6>
 				<div>
 					<button ng-click="submitVote(1)" class="yes-btn">YES</button>
 					<button ng-click="submitVote(0)" class="no-btn">No</button>
 				</div>
-				<p class="mt-2">Total number of vote recorded <span style="font-weight: bolder">{{pollsList[0].votesCount}}</span></p>
+				<p class="mt-2">Total number of vote recorded <span style="font-weight: bolder">{{todayPoll.votesCount}}</span></p>
             </div>
 	</div>
 	<div class="row mt-5">
